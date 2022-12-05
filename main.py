@@ -1,60 +1,23 @@
-def nwd(a,b):
-    while b:
-        a, b = b, a %b
-        return a
+from court import Court
+from stadium import Stadium
 
-class wymierna:
-    licznik:int
-    mianownik:int
-    def __init__(self,licznik=0,mianownik=1):
-        self.licznik=licznik
-        if mianownik==0:
-            print("tak nie wolno")
-        else:
-            self.mianownik=mianownik
-    def get_licznik(self):
-        return self.licznik
-    def get_mianownik(self):
-        return self.mianownik
-    def __repr__(self):
-        return f'{self.licznik}/{self.mianownik}'
-    def __float__(self):
-        return self.licznik/self.mianownik
-
-    def __add__(self, other):
-        if self.mianownik!=other.mianownik:
-            lewy=self.licznik*other.mianownik
-            prawy=other.licznik*self.mianownik
-            return wymierna(lewy+prawy,self.mianownik*other.mianownik)
-        else:
-            return wymierna(self.licznik + other.licznik,self.mianownik)
-    def __sub__(self,other):
-        if self.mianownik!=other.mianownik:
-            lewy=self.licznik*other.mianownik
-            prawy=other.licznik*self.mianownik
-            return wymierna(lewy-prawy,self.mianownik*other.mianownik)
-        else:
-            return wymierna(self.licznik - other.licznik,self.mianownik)
+# court_1 = Court(1988,"Słoneczna 54")
+# print(court_1)
+# court_2 = Court(1988,"Słoneczna 54",500,500)
+# print(court_2)
+# court_3 = Court(1999,"Słoneczna 10",100,50)
+# print(court_3)
+# print(court_1.length)
+# court_1.year_built = 1990
+# print(court_1)
+# print(court_1.area())
+# court_1.year_built=2030
+# print(court_1)
+# Court.validate(court_1)
+# print(court_1)
+stadium_1 = Stadium(1999,"Słoneczna 54","stadion przy słonecznej","Słonko",10000)
+print(stadium_1)
+stadium_2 = Stadium(1999,"Słoneczna 10","Słoneczny stadion","",10000)
+print(stadium_2)
 
 
-
-
-
-
-
-
-
-def main():
-    liczba1=wymierna(licznik=4,mianownik=6)
-    print(liczba1.get_licznik())
-    print(liczba1.get_mianownik())
-    print(liczba1.__repr__())
-    liczba2=wymierna(licznik=2,mianownik=3)
-    print(liczba1.__add__(liczba2))
-    print(liczba2.__sub__(liczba1))
-
-
-
-
-if __name__=="__main__":
-    main()
